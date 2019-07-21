@@ -1,12 +1,19 @@
 import React from "react";
 import Header from "./components/Header";
+import Form from "./components/Form";
 import CategoriesProvider from "./context/categories";
+import EventsProvider from "./context/events";
 
 function App() {
   return (
-    <CategoriesProvider>
-      <Header />
-    </CategoriesProvider>
+    <EventsProvider>
+      <CategoriesProvider>
+        <Header />
+        <div className="uk-container">
+          <Form />
+        </div>
+      </CategoriesProvider>
+    </EventsProvider>
   );
 }
 
