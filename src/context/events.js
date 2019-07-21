@@ -2,14 +2,14 @@ import React, { Component } from "react";
 import axios from "axios";
 
 const EventsContext = React.createContext();
-export const EventConsumer = EventsContext.Consumer;
+export const EventsConsumer = EventsContext.Consumer;
 
 class EventsProvider extends Component {
   token = "63LKGCSKJEHWCOPS3XXG";
   sorting = "date";
 
   state = {
-    events: []
+    eventList: []
   };
 
   getEvents = async search => {
@@ -21,7 +21,9 @@ class EventsProvider extends Component {
 
     const eventConsult = await axios.get(url);
 
-    console.log(eventConsult);
+    this.setState({
+      eventList: eventConsult.data.events
+    });
   };
 
   render() {
