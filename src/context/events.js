@@ -9,7 +9,7 @@ class EventsProvider extends Component {
   sorting = "date";
 
   state = {
-    eventList: []
+    events: []
   };
 
   getEvents = async search => {
@@ -22,7 +22,7 @@ class EventsProvider extends Component {
     const eventConsult = await axios.get(url);
 
     this.setState({
-      eventList: eventConsult.data.events
+      events: eventConsult.data.events
     });
   };
 
